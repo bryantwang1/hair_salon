@@ -1,0 +1,20 @@
+@{
+    Layout="Shared/_Layout.cshtml";
+}
+
+<h1>Your Hair Salon Clients</h1>
+@if(Model.Count <= 0)
+{
+    <h3>You don't have any clients yet!</h3>
+}
+else
+{
+    <h2>Clients: </h2>
+    @foreach(var client in Model)
+    {
+        <h3><a href="/client/@client.GetId()">@client.GetName()</a></h3>
+    }
+}
+
+<h4><a href="/clients/new">Click here to add a new client.</a></h4>
+<h4><a href="/">Click here to return to the homepage.</a></h4>

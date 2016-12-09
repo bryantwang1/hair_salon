@@ -9,7 +9,7 @@
     <form action="/clients/new/added" method="post">
         <div class="form-group">
             <label for="client-name">Name: </label>
-            <input type="text" name="client-name" id="client-name" placeholder="Alice" required autofocus>
+            <input type="text" name="client-name" id="client-name" placeholder="Tom" required autofocus>
         </div>
         <div class="form-group">
             <label for="client-description">Description: </label>
@@ -17,7 +17,7 @@
         </div>
         <div class="form-group">
             <span>Stylist: </span>
-            <select name="stylist-id">
+            <select name="client-stylist-id">
             @foreach (var stylist in Model)
             {
                 <option value="@stylist.GetId()">@stylist.GetName()</option>

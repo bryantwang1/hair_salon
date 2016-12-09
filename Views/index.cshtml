@@ -12,9 +12,10 @@ else
     <h2>Stylists: </h2>
     @foreach(var stylist in Model)
     {
-        <h3><a href="">Name: @stylist.GetName()</a></h3>
+        <h3><a href="/stylist/@stylist.GetId()">@stylist.GetName()</a></h3>
     }
 }
 
 <h4><a href="/stylists/new">Click here to add a new stylist.</a></h4>
+<h4><a href="/clients/new">Click here to add a new client.</a></h4>
 <h4><a href="/clients">Click here to view all clients.</a></h4>

@@ -5,14 +5,14 @@
 <h1>Add a Stylist</h1>
 
 
-<form action="/stylist/new/added" method="post">
+<form action="/stylists/new/added" method="post">
     <div class="form-group">
         <label for="stylist-name">Name: </label>
         <input type="text" name="stylist-name" id="stylist-name" placeholder="Alice" required autofocus>
     </div>
     <div class="form-group">
         <label for="stylist-phone">Phone: </label>
-        <input type="text" name="stylist-phone" id="stylist-phone" placeholder="(555)555-5555" pattern="(\d{3})\d{3}-\d{4}" title="Please match the format: (###)###-####" required>
+        <input type="text" name="stylist-phone" id="stylist-phone" placeholder="(555)555-5555" pattern="\(\d{3}\)\d{3}-\d{4}" title="Please match the format: (###)###-####" required>
     </div>
     <div class="form-group">
         <label for="stylist-description">Description: </label>
