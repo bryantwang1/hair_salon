@@ -2,14 +2,13 @@
     Layout="Shared/_Layout.cshtml";
 }
 
-<h1>You added a stylist</h1>
+<h1>You edited a stylist</h1>
 
 <h3>Name: @Model.GetName()</h3>
 <h4>Phone: @Model.GetPhone()</h4>
 <h4>Description: @Model.GetDescription()</h4>
 
 <div class="footer-links">
-    <h4><a href="/stylists/new">Click here to add another new stylist.</a></h4>
     <h4><a href="/stylist/@Model.GetId()/new_client">Click here to add a client for this stylist.</a></h4>
     <h4><a href="/clients">Click here to view all clients.</a></h4>
     <h4><a href="/">Click here to return to the homepage.</a></h4>

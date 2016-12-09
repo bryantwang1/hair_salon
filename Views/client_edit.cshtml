@@ -1,0 +1,53 @@
+@{
+    Layout="Shared/_Layout.cshtml";
+}
+
+<h1>Edit client: @Model["client"].GetName()</h1>
+
+@if(@Model.Count > 0)
+{
+    <form action="/client/edit/@Model["client"].GetId()" method="post">
+        <input type="hidden" name="_method" value="PATCH">
+        <input name="client-id" type="hidden" value="@Model["client"].GetId()">
+        <div class="form-group">
+            <label for="client-name">Name: </label>
+            <input type="text" name="client-name" id="client-name" placeholder="Tom" value="@Model["client"].GetName()" required autofocus>
+        </div>
+        <div class="form-group">
+            <label for="client-description">Description: </label>
+            <input type="text" name="client-description" id="client-description" placeholder="Tips well, comes once a week." value="@Model["client"].GetDescription()" required>
+        </div>
+        <div class="form-group">
+            <span>Stylist: </span>
+            <select name="client-stylist-id">
+            @foreach (var stylist in Model["all stylists"])
+            {
+                @if(stylist.GetId() == Model["client"].GetStylistId())
+                {
+                    <option value="@stylist.GetId()">@stylist.GetName()</option>
+                }
+            }
+            @foreach (var stylist in Model["all stylists"])
+            {
+                @if(stylist.GetId() == Model["client"].GetStylistId())
+                {
+                }
+                else
+                {
+                    <option value="@stylist.GetId()">@stylist.GetName()</option>
+                }
+            }
+            </select>
+        </div>
+        <button type="submit" class="btn btn-default">Edit Client</button>
+    </form>
+}
+else
+{
+    <h2>You need to have at least one stylist before you can add clients.</h2>
+}
+
+<div class="footer-links">
+    <h4><a href="/stylist/new">Click here to add a new stylist.</a></h4>
+    <h4><a href="/">Click here to return to the homepage without editing a client.</a></h4>
+</div>

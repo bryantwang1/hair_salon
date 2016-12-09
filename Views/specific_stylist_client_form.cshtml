@@ -5,7 +5,7 @@
 <h1>Add a Client for @Model.GetName()</h1>
 
 
-<form action="/stylist/@Model.GetId()/new_client/added" method="post">
+<form action="/stylist/@Model.GetId()/new_client" method="post">
     <div class="form-group">
         <label for="client-name">Name: </label>
         <input type="text" name="client-name" id="client-name" placeholder="Tom" required autofocus>
@@ -17,5 +17,7 @@
     <button type="submit" class="btn btn-default">Add Client</button>
 </form>
 
-<h4><a href="/stylist/new">Click here to add a new stylist.</a></h4>
-<h4><a href="/">Click here to return to the homepage without adding a client.</a></h4>
+<div class="footer-links">
+    <h4><a href="/stylist/new">Click here to add a new stylist.</a></h4>
+    <h4><a href="/">Click here to return to the homepage without adding a client.</a></h4>
+</div>

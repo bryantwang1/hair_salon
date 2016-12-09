@@ -20,8 +20,10 @@ else
     }
 }
 
-
-<h4><a href="/stylists/delete/@Model.GetId()">Click here to delete this stylist and all of their clients.</a></h4>
-<h4><a href="/stylist/@Model.GetId()/new_client">Click here to add a client for this stylist.</a></h4>
-<h4><a href="/clients">Click here to view all clients.</a></h4>
-<h4><a href="/">Click here to return to the homepage.</a></h4>
+<div class="footer-links">
+    <h4><a href="/stylist/edit/@Model.GetId()">Click here to edit this stylist's information.</a></h4>
+    <h4><a href="/stylist/@Model.GetId()/new_client">Click here to add a client for this stylist.</a></h4>
+    <h4><a href="/clients">Click here to view all clients.</a></h4>
+    <h4><a href="/">Click here to return to the homepage.</a></h4>
+    <h4 id="warning"><a href="/stylists/delete/@Model.GetId()">Click here to delete this stylist and all of their clients.</a></h4>
+</div>

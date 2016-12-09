@@ -1,0 +1,27 @@
+@{
+    Layout="Shared/_Layout.cshtml";
+}
+
+<h1>Edit stylist: @Model.GetName()</h1>
+
+<form action="/stylist/edit/@Model.GetId()" method="post">
+    <input type="hidden" name="_method" value="PATCH">
+    <input name="stylist-id" type="hidden" value="@Model.GetId()">
+    <div class="form-group">
+        <label for="stylist-name">Name: </label>
+        <input type="text" name="stylist-name" id="stylist-name" placeholder="Alice" value="@Model.GetName()" required autofocus>
+    </div>
+    <div class="form-group">
+        <label for="stylist-phone">Phone: </label>
+        <input type="text" name="stylist-phone" id="stylist-phone" placeholder="(555)555-5555" pattern="\(\d{3}\)\d{3}-\d{4}" title="Please match the format: (###)###-####" value="@Model.GetPhone()" required>
+    </div>
+    <div class="form-group">
+        <label for="stylist-description">Description: </label>
+        <input type="text" name="stylist-description" id="stylist-description" placeholder="Works fast, positive feedback from clients." value="@Model.GetDescription()" required>
+    </div>
+    <button type="submit" class="btn btn-default">Edit Stylist</button>
+</form>
+
+<div class="footer-links">
+    <h4><a href="/">Click here to return to the homepage without editing this stylist.</a></h4>
+</div>
