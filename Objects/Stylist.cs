@@ -31,7 +31,9 @@ namespace HairSalon.Objects
                 Stylist newStylist = (Stylist) otherStylist;
                 bool idEquality = this.GetId() == newStylist.GetId();
                 bool nameEquality = this.GetName() == newStylist.GetName();
-                return (idEquality && nameEquality);
+                bool phoneEquality = this.GetPhone() == newStylist.GetPhone();
+                bool descriptionEquality = this.GetDescription() == newStylist.GetDescription();
+                return (idEquality && nameEquality && phoneEquality && descriptionEquality);
             }
         }
 
@@ -132,7 +134,10 @@ namespace HairSalon.Objects
 
             SqlCommand cmd = new SqlCommand("DELETE FROM stylists;", conn);
             cmd.ExecuteNonQuery();
-            conn.Close();
+            if(conn != null)
+            {
+                conn.Close();
+            }
         }
 
         public static Stylist Find(int searchId)
