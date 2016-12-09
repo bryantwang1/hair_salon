@@ -1,0 +1,33 @@
+body {
+    background-image: linear-gradient(to bottom, white, lightgray);
+    background-attachment: fixed;
+}
+
+#warning a {
+    color: darkred;
+}
+
+.footer-links {
+    margin-top: 20px;
+    background-color: #f2f2f2;
+    padding: 8px;
+    margin-bottom: 20px;
+    box-shadow: 5px 6px 15px black;
+}
+
+h1 {
+    background-color: black;
+    color: white;
+    padding-left: 10px;
+}
+
+.container {
+    background-color: lightgray;
+    box-shadow: 5px 5px 20px black;
+    margin-top: 18px;
+    width: 720px;
+}
+
+input {
+    width: 40%;
+}
