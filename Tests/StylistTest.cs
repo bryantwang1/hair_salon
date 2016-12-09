@@ -5,7 +5,7 @@ using Xunit;
 using System;
 using System.Collections.Generic;
 
-namespace HairSalonTest
+namespace HairSalon
 {
     public class StylistTest : IDisposable
     {
@@ -31,7 +31,7 @@ namespace HairSalonTest
         public void Test_Equal_ReturnsTrueForSameData()
         {
             Stylist stylist1 = new Stylist("Giovanni", "(555)555-5555", "Fast, does good work.");
-            Stylist stylist2 = new Stylist("Mako", "(555)555-5556", "Could be faster.");
+            Stylist stylist2 = new Stylist("Giovanni", "(555)555-5555", "Fast, does good work.");
 
             Assert.Equal(stylist1, stylist2);
         }
