@@ -139,5 +139,77 @@ namespace HairSalon.Objects
                 conn.Close();
             }
         }
+
+        public static Client Find(int searchId)
+        {
+            SqlConnection conn = DB.Connection();
+            conn.Open();
+
+            SqlCommand cmd = new SqlCommand("SELECT * FROM clients WHERE id = @ClientId;", conn);
+            SqlParameter idParameter = new SqlParameter();
+            idParameter.ParameterName = "@ClientId";
+            idParameter.Value = searchId.ToString();
+            cmd.Parameters.Add(idParameter);
+
+            SqlDataReader rdr = cmd.ExecuteReader();
+
+            int clientId = 0;
+            string clientName = null;
+            string clientDescription = null;
+            int stylistId = 0;
+            while(rdr.Read())
+            {
+                clientId = rdr.GetInt32(0);
+                clientName = rdr.GetString(1);
+                clientDescription = rdr.GetString(2);
+                stylistId = rdr.GetInt32(3);
+            }
+            Client foundClient = new Client(clientName, clientDescription, stylistId, clientId);
+
+            if(rdr != null)
+            {
+                rdr.Close();
+            }
+            if(conn != null)
+            {
+                conn.Close();
+            }
+            return foundClient;
+        }
+
+        public void Update(string newName, string newDescription, int newStylistId)
+        {
+            SqlConnection conn = DB.Connection();
+            conn.Open();
+
+            SqlCommand cmd = new SqlCommand("UPDATE clients SET name = @ClientName, description = @ClientDescription, stylist_id = @StylistId WHERE id = @ClientId;", conn);
+
+            SqlParameter nameParameter = new SqlParameter();
+            nameParameter.ParameterName = "@ClientName";
+            nameParameter.Value = newName;
+
+            SqlParameter descriptionParameter = new SqlParameter();
+            descriptionParameter.ParameterName = "@ClientDescription";
+            descriptionParameter.Value = newDescription;
+
+            SqlParameter stylistIdParameter = new SqlParameter();
+            stylistIdParameter.ParameterName = "@StylistId";
+            stylistIdParameter.Value = newStylistId.ToString();
+
+            SqlParameter idParameter = new SqlParameter();
+            idParameter.ParameterName = "@ClientId";
+            idParameter.Value = this.GetId().ToString();
+
+            cmd.Parameters.Add(nameParameter);
+            cmd.Parameters.Add(descriptionParameter);
+            cmd.Parameters.Add(stylistIdParameter);
+            cmd.Parameters.Add(idParameter);
+
+            cmd.ExecuteNonQuery();
+            if(conn != null)
+            {
+                conn.Close();
+            }
+        }
     }
 }
