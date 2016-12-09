@@ -66,23 +66,26 @@ namespace HairSalon
                 model.Add("stylist", selectedStylist);
                 return View["client.cshtml", model];
             };
-            //
-            // Get["/stylist/{id}/new_client"] = parameters => {
-            //     Stylist selectedStylist = Stylist.Find(parameters.id);
-            //     return View["specific_stylist_client_form.cshtml", selectedStylist];
-            // };
-            //
-            // Post["/stylist/{id}/new_client/added"] = parameters => {
-            //     Stylist selectedStylist = Stylist.Find(parameters.id);
-            //
-            //     string clientName = Request.Form["client-name"];
-            //     string clientDescription = Request.Form["client-description"];
-            //     string clientStylistId = SelectedStylist.GetId();
-            //
-            //     Client newClient = newClient(clientName, clientDescription, clientStylistId);
-            //     newClient.Save();
-            //     return View["client_added.cshtml", newClient];
-            // };
+
+            Get["/stylist/{id}/new_client"] = parameters => {
+                Stylist selectedStylist = Stylist.Find(parameters.id);
+                return View["specific_stylist_client_form.cshtml", selectedStylist];
+            };
+
+            Post["/stylist/{id}/new_client/added"] = parameters => {
+                Dictionary<string, object> model = new Dictionary<string, object> ();
+                Stylist selectedStylist = Stylist.Find(parameters.id);
+
+                string clientName = Request.Form["client-name"];
+                string clientDescription = Request.Form["client-description"];
+                int clientStylistId = selectedStylist.GetId();
+
+                Client newClient = new Client(clientName, clientDescription, clientStylistId);
+                newClient.Save();
+                model.Add("client", newClient);
+                model.Add("stylist", selectedStylist);
+                return View["client_added.cshtml", model];
+            };
         }
     }
 }

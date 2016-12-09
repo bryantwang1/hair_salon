@@ -1,0 +1,21 @@
+@{
+    Layout="Shared/_Layout.cshtml";
+}
+
+<h1>Add a Client for @Model.GetName()</h1>
+
+
+<form action="/stylist/@Model.GetId()/new_client/added" method="post">
+    <div class="form-group">
+        <label for="client-name">Name: </label>
+        <input type="text" name="client-name" id="client-name" placeholder="Tom" required autofocus>
+    </div>
+    <div class="form-group">
+        <label for="client-description">Description: </label>
+        <input type="text" name="client-description" id="client-description" placeholder="Tips well, comes once a week." required>
+    </div>
+    <button type="submit" class="btn btn-default">Add Client</button>
+</form>
+
+<h4><a href="/stylist/new">Click here to add a new stylist.</a></h4>
+<h4><a href="/">Click here to return to the homepage without adding a client.</a></h4>

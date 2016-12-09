@@ -7,6 +7,19 @@
 <h3>Name: @Model.GetName()</h3>
 <h4>Phone: @Model.GetPhone()</h4>
 <h4>Description: @Model.GetDescription()</h4>
+<h4>Clients: </h4>
+@if(Model.GetClients().Count <= 0)
+{
+    <h5>This stylist doesn't have any clients yet.</h5>
+}
+else
+{
+    @foreach(var client in Model.GetClients())
+    {
+        <h5><a href="/client/@client.GetId()">@client.GetName()</a></h5>
+    }
+}
+
 
 <h4><a href="/stylists/delete/@Model.GetId()">Click here to delete this stylist and all of their clients.</a></h4>
 <h4><a href="/stylist/@Model.GetId()/new_client">Click here to add a client for this stylist.</a></h4>
