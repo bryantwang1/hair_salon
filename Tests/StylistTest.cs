@@ -72,5 +72,23 @@ namespace HairSalon
 
             Assert.Equal(testStylist, foundStylist);
         }
+
+        [Fact]
+        public void Test_Update_UpdatesStylistInDatabase()
+        {
+            Stylist testStylist = new Stylist("Giovanni", "(555)555-5555", "Fast, does good work.");
+            testStylist.Save();
+            string newName = "Frank";
+            string newPhone = "(555)111-2222";
+            string newDescription = "Could be faster.";
+
+            testStylist.Update(newName, newPhone, newDescription);
+
+            Stylist result = Stylist.GetAll()[0];
+            int compareId = result.GetId();
+            Stylist comparisonStylist = new Stylist(newName, newPhone, newDescription, compareId);
+
+            Assert.Equal(comparisonStylist, result);
+        }
     }
 }
