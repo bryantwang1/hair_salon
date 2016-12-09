@@ -19,5 +19,20 @@ namespace HairSalon.Objects
             _phone = StylistPhone;
             _description = StylistDescription;
         }
+
+        public override bool Equals(System.Object otherStylist)
+        {
+            if (!(otherStylist is Stylist))
+            {
+                return false;
+            }
+            else
+            {
+                Stylist newStylist = (Stylist) otherStylist;
+                bool idEquality = this.GetId() == newStylist.GetId();
+                bool nameEquality = this.GetName() == newStylist.GetName();
+                return (idEquality && nameEquality);
+            }
+        }
     }
 }
