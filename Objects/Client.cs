@@ -19,5 +19,25 @@ namespace HairSalon.Objects
             _description = ClientDescription;
             _stylistId = StylistId;
         }
+
+        public int GetId()
+        {
+            return _id;
+        }
+
+        public string GetName()
+        {
+            return _name;
+        }
+
+        public string GetDescription()
+        {
+            return _description;
+        }
+
+        public int GetStylistId()
+        {
+            return _stylistId;
+        }
     }
 }
