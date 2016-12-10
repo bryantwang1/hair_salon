@@ -25,10 +25,10 @@ _To run this web app you need the Nancy framework for C#_
 > CREATE TABLE stylists (id INT IDENTITY(1,1), name VARCHAR(255), phone VARCHAR(255), description VARCHAR(255));
 > GO
 ```
-* Do the above for a database called hair_salon_test or just delete the test files if you don't want to bother;
-6. Type `dnx kestrel` into PowerShell and hit enter, the local server should now be running
-7. Open your preferred web browser and navigate to localhost:5004, the main page should appear
-8. Go wild
+6. Do the above for a database called hair_salon_test or just delete the test files if you don't want to bother;
+7. Type `dnx kestrel` into PowerShell and hit enter, the local server should now be running
+8. Open your preferred web browser and navigate to localhost:5004, the main page should appear
+9. Go wild
 
 ## Technologies Used
 
