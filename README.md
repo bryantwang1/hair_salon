@@ -17,13 +17,13 @@ _To run this web app you need the Nancy framework for C#_
     * Do the same with `hair_salon_test.sql`
   * If you don't have MS SQL Server Management Studio, do this in SQLCMD:
 
-    > CREATE DATABASE hair_salon;
-    > GO;
-    > USE hair_salon;
-    > GO
-    > CREATE TABLE clients (id INT IDENTITY(1,1), name VARCHAR(255), description VARCHAR(255), stylist_id INT);
-    > CREATE TABLE stylists (id INT IDENTITY(1,1), name VARCHAR(255), phone VARCHAR(255), description VARCHAR(255));
-    > GO
+        > CREATE DATABASE hair_salon;
+        > GO;
+        > USE hair_salon;
+        > GO
+        > CREATE TABLE clients (id INT IDENTITY(1,1), name VARCHAR(255), description VARCHAR(255), stylist_id INT);
+        > CREATE TABLE stylists (id INT IDENTITY(1,1), name VARCHAR(255), phone VARCHAR(255), description VARCHAR(255));
+        > GO
 
   * Do the above for a database called hair_salon_test or just delete the test files if you don't want to bother;
 7. Type `dnx kestrel` into PowerShell and hit enter, the local server should now be running
