@@ -13,8 +13,8 @@ _To run this web app you need the Nancy framework for C#_
 3. Change your directory in PowerShell to the cloned project folder
 4. Type `dnu restore` into Powershell and hit enter
 5. Create the databases with the appropriate schema.
-  * If you have Microsoft SQL Server Management Studio, select _File_ > _Open_ > _File_ and select 'hair_salon.sql', then execute it by clicking the '!Execute' button.
-    * Do the same with 'hair_salon_test.sql'
+  * If you have Microsoft SQL Server Management Studio, select _File_ > _Open_ > _File_ and select `hair_salon.sql`, then execute it by clicking the `!Execute` button.
+    * Do the same with `hair_salon_test.sql`
   * If you don't have MS SQL Server Management Studio, do this in SQLCMD:
 ```
 > CREATE DATABASE hair_salon;
